@@ -44,15 +44,24 @@ public class Main {
 	private static Map<String, Set<String>> reachableList;
 
 	public static void main(String[] args) throws Exception {
+		int mb = 1024 * 1024;
+		// Getting the runtime reference from system
+		Runtime runtime = Runtime.getRuntime();
+		System.out.println("##### Heap utilization statistics [MB] #####");
+
 		Main main = new Main();
 		main.init();
 		main.readFile();
 		main.loadData();
+		System.out.println(main.vertexList.size());
 		long start = System.currentTimeMillis();
 		main.compute();
 		long end = System.currentTimeMillis();
 		System.out.println(end - start);
 		main.writeTextFile();
+
+		// Print used memory
+		System.out.println("Used Memory:" + (runtime.totalMemory() - runtime.freeMemory()) / mb);
 	}
 
 	// initialize

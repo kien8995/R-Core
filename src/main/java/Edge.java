@@ -4,6 +4,12 @@ public class Edge {
 	private String endNode;
 	private int weight;
 
+	public Edge(String startNode, String endNode) {
+		this.startNode = startNode;
+		this.endNode = endNode;
+		this.weight = 1;
+	}
+	
 	public Edge(String startNode, String endNode, int weight) {
 		this.startNode = startNode;
 		this.endNode = endNode;
